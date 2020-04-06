@@ -1,0 +1,64 @@
+/* This code is focused on
+the frontend of the web collector app*/
+
+html, body {
+    height: 100%;
+    /*Aligns text to top of page*/
+    margin: 0;
+    background-color: #006666;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100;
+    background-color: #006666;
+    /*Text colour set to white*/
+    color: #e6ffff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.container h1 {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    color: #DDCCEE;
+    /*Moves text further down*/
+    margin-top: 80px;
+}
+
+.container form {
+    margin: 30px;
+}
+
+.container input {
+    width: 350px;
+    height: 15px;
+    font-size: 15px;
+    /*Adds space between each input field*/
+    margin: 2px;
+    /*Increases space of input fields*/
+    padding: 10px;
+    /*Adds animation when page is refreshed*/
+    transition: all 0.2s ease-in-out;
+}
+
+.container button {
+    width: 70px;
+    height: 30px;
+    background-color: steelblue;
+    /*Button is 3 pixels away from fields*/
+    margin: 3px;
+}
+
+/*Affects success.html*/
+.container p {
+    /*Shifts thank you message down by 100 pixels*/
+    margin: 100px;
+}
+
+.message {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #ff9999;
+}

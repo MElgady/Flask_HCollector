@@ -1,0 +1,44 @@
+<!--This lecture will focus on the 
+front end of the data collector web app i.e.
+the HTML and CSS code. This is where the 
+entry fields, the "submit" button and the
+instructions will be.-->
+
+<!DOCTYPE html>
+<!--Sets language to English-->
+<html lang="en">
+<!--Title of tab-->
+<title>App 9: Data Collector Web App</title>
+
+<head>
+    <!--Links to CSS file and sets as a stylesheet-->
+    <link href="../static/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--Div class separates different sections of webpage. Easier to
+        refer to specific sections in CSS file.-->
+    <div class="container">
+        <h1>Collecting height data</h1>
+        <h3>Please fill in the following entries to get population statistics on height</h3>
+        <!--Email address already exists message-->
+        <div class="message">
+            {{text | safe}}
+        </div>
+        <!--When user clicks submit, they are redirected to success.html-->
+        <!--url_for('success') is needed to send user to success.html-->
+        <form action="{{url_for('success')}}" method="POST">
+            <!--Adds 2 fields (email and height) and sets them as required i.e. user has to enter
+            data or else an error popup will appear-->
+            <input title="Your email will be safe with us" placeholder="Enter your email address" type="email"
+                name="email_name" required><br>
+            <!--Height must be between 50cm and 300cm-->
+            <input title="Your height will be safe with us" placeholder="Enter your height in cm" type="number" min="50"
+                max="300" name="height_name" required><br>
+            <!--Creates submit button-->
+            <button type="submit"> Submit </button>
+        </form>
+    </div>
+</body>
+
+</html>
