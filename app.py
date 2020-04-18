@@ -3,8 +3,10 @@
 # When a user enters their email and height,
 # an email will be sent with their height and the
 # average height of all users in the database.import os, sys 
-
-
+import os, sys 
+pkgname = 'flask_sqlalchemy' 
+pkgdir = '{0}/lib/python{1}/site-packages/{2}'.format(sys.prefix, sys.version[:3], pkgname) 
+print(os.listdir(pkgdir)) 
 
 from flask import Flask, render_template, request
 # Gets the SQLAlchmey library from flask      
@@ -16,7 +18,7 @@ from send_email import send_email
 
 app=Flask(__name__)
 # Connects to database on Heroku servers
-app.config['SQLALCHEMY_DATABASE_URI']='postgres://vyoomnbjlrnivp:05a067687a795189615e3e00ac24602ba69f87672a768f0a3dfe727c67f34979@ec2-34-202-7-83.compute-1.amazonaws.com:5432/da7stu0j3fre9d?sslmode=require'
+app.config['SQLALCHEMY_DATABASE_URI']='postgres://qbzfkzozbnvgwf:b7179499130c4d19bab242cad5665b29fa93e3ae23b462ec304d4b7c494f63d4@ec2-34-202-7-83.compute-1.amazonaws.com:5432/da7stu0j3fre9d?sslmode=require'
 # Creates database
 db = SQLAlchemy(app)
 
