@@ -2,13 +2,15 @@
 # the email addresses and heights of its users.
 # When a user enters their email and height,
 # an email will be sent with their height and the
-# average hight of all users in the database.
+# average height of all users in the database.import os, sys 
+
+
 
 from flask import Flask, render_template, request
 # Gets the SQLAlchmey library from flask      
 from flask_sqlalchemy import SQLAlchemy
 # Gets the average function
-from sqlalchemy.sql import func 
+from sqlalchemy import func
 # Gets send_email function
 from send_email import send_email
 
