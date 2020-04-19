@@ -3,10 +3,6 @@
 # When a user enters their email and height,
 # an email will be sent with their height and the
 # average height of all users in the database.import os, sys 
-import os, sys 
-pkgname = 'flask_sqlalchemy' 
-pkgdir = '{0}/lib/python{1}/site-packages/{2}'.format(sys.prefix, sys.version[:3], pkgname) 
-print(os.listdir(pkgdir)) 
 
 from flask import Flask, render_template, request
 # Gets the SQLAlchmey library from flask      
