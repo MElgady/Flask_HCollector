@@ -18,7 +18,7 @@ def send_email(email, height, average_height, count):
     # Subject and message of email
     subject = "Height Data"
     # Height is in bold <strong> using HTML
-    message = "Hey there! Your height is <strong>%scm</strong>. <br> Average height of all users is <strong>%scm</strong>cm and that is calculated from <strong>%s</strong> users. <br> Thanks!" % (
+    message = "Hey there! Your height is <strong>%scm</strong>. <br> Average height of all users is <strong>%scm</strong> and that is calculated from <strong>%s</strong> users. <br> Thanks!" % (
         height, average_height, count)
 
     # Message variable is read as HTML
