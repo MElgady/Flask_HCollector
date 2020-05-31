@@ -2,39 +2,43 @@
 # the email addresses and heights of its users.
 # When a user enters their email and height,
 # an email will be sent with their height and the
-# average height of all users in the database.import os, sys 
+# average height of all users in the database.import os, sys
 
 from flask import Flask, render_template, request
-# Gets the SQLAlchmey library from flask      
+# Gets the SQLAlchmey library from flask
 from flask_sqlalchemy import SQLAlchemy
 # Gets the average function
 from sqlalchemy import func
 # Gets send_email function
 from send_email import send_email
 
-app=Flask(__name__)
+# Input the following command in the terminal if you get an error with flask_sqlalchemy
+# C:\Users\user\AppData\Local\Programs\Python\Python38-32\python -m pip install flask-sqlalchemy
+
+app = Flask(__name__)
 # Connects to database on Heroku servers
-app.config['SQLALCHEMY_DATABASE_URI']='postgres://qbzfkzozbnvgwf:b7179499130c4d19bab242cad5665b29fa93e3ae23b462ec304d4b7c494f63d4@ec2-34-202-7-83.compute-1.amazonaws.com:5432/da7stu0j3fre9d?sslmode=require'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://qbzfkzozbnvgwf:b7179499130c4d19bab242cad5665b29fa93e3ae23b462ec304d4b7c494f63d4@ec2-34-202-7-83.compute-1.amazonaws.com:5432/da7stu0j3fre9d?sslmode=require'
 # Creates database
 db = SQLAlchemy(app)
 
+
 class Data(db.Model):
     # Name of table
-    __tablename__="data"
+    __tablename__ = "data"
     # ID column that gives unique number to each data set
-    id = db.Column(db.Integer,primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     # Email column with maximum limit of 120 and they must be unique
     email_ = db.Column(db.String(120), unique=True)
     # Height column that accepts integers
     height_ = db.Column(db.Integer)
-    
+
     # Initialises all the variables
     def __init__(self, email_, height_):
         self.email_ = email_
         self.height_ = height_
 
-@app.route("/")
 
+@app.route("/")
 def index():
     # Renders the index.html homepage on first page
     return render_template("index.html")
@@ -57,8 +61,8 @@ def success():
             db.session.commit()
             # Gets the average height as a number using the avg function
             average_height = db.session.query(func.avg(Data.height_)).scalar()
-            # Rounds average to 1 decimal place 
-            average_height = round(average_height,1)
+            # Rounds average to 1 decimal place
+            average_height = round(average_height, 1)
             count = db.session.query(Data.height_).count()
             # Calls send_email function
             send_email(email, height, average_height, count)
@@ -67,12 +71,12 @@ def success():
         # If email is in database, refresh page to index.html
         else:
             # Message appears above email field
-            return render_template("index.html", 
-            text="It seems we've got this email already. Please give us a new email.")
+            return render_template("index.html",
+                                   text="It seems we've got this email already. Please give us a new email.")
 
 
 if __name__ == '__main__':
-    app.debug=True
+    app.debug = True
     # Sets name of IP to 5001 and runs
     # the app
     app.run(port=5001)
