@@ -1,5 +1,4 @@
-# Flask_HCollector
-
+# Flask Height Collector
 Flask Height Collector
 Uses the Flask framework, PostgreSQL and the smtplibrary to log a user's height (cm) and email that user: their height (cm) and the average of all other heights in a database.
 
