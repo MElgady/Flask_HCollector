@@ -11,5 +11,3 @@ Installation: Not necessary as the site is hosted on Heroku servers. Site link: 
 Usage: To use this application, enter your email address and height in centimetres into their respective fields. Click the "Submit" button and you should receive an email with your height in centimetres as well as the average height of all users in the database.
 
 Credits: Code is based on a project by Ardit Sulce from his Python Mega Course on Udemy (https://www.udemy.com/course-dashboard-redirect/?course_id=692188).
-
-Testing if profile name on GitHub has been updated properly
